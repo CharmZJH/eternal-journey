@@ -1,5 +1,6 @@
 package com.personal.eternaljourney.service.impl;
 
+import com.personal.eternaljourney.config.ApiResult;
 import com.personal.eternaljourney.domain.Equipment;
 import com.personal.eternaljourney.repository.EquipmentRepository;
 import com.personal.eternaljourney.service.EquipmentService;
@@ -24,9 +25,11 @@ public class EquipmentServiceImpl implements EquipmentService {
     private EquipmentRepository equipmentRepository;
 
     @Override
-    public List<Equipment> load(){
+    public ApiResult<List<Equipment>> load(){
 
-        return equipmentRepository.findAll();
+        List<Equipment> equipmentList = equipmentRepository.findAll();
+
+        return ApiResult.success("接口调用成功", equipmentList, equipmentList.size());
 
     }
 

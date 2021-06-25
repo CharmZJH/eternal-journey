@@ -1,5 +1,6 @@
 package com.personal.eternaljourney.service;
 
+import com.personal.eternaljourney.config.ApiResult;
 import com.personal.eternaljourney.domain.Equipment;
 import com.personal.eternaljourney.vo.EquipmentVo;
 
@@ -13,7 +14,7 @@ import java.util.List;
 public interface EquipmentService {
 
     //加载
-    List<Equipment> load();
+    ApiResult<List<Equipment>> load();
 
     //保存和更新
     void save(EquipmentVo equipmentVo);

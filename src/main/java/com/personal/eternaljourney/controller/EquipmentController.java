@@ -1,6 +1,7 @@
 package com.personal.eternaljourney.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.personal.eternaljourney.config.ApiResult;
 import com.personal.eternaljourney.config.ReLog;
 import com.personal.eternaljourney.domain.Equipment;
 import com.personal.eternaljourney.service.EquipmentService;
@@ -18,13 +19,14 @@ import java.util.List;
 @ReLog
 @RestController
 @RequestMapping("/equ")
+@CrossOrigin
 public class EquipmentController {
 
     @Resource
     private EquipmentService equipmentService;
 
     @PostMapping("/load")
-    public List<Equipment> load(){
+    public ApiResult<List<Equipment>> load(){
 
         return equipmentService.load();
     }
